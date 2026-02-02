@@ -110,4 +110,3 @@ document.querySelector(".container").appendChild(refreshBtn);
 
 // --- טעינה ראשונית --- //
 loadExercises();
-

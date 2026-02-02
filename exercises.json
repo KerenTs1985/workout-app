@@ -5,6 +5,9 @@
   {"id": 4, "name": "Core Buso", "category": "בטן"},
   {"id": 5, "name": "Dumbbell Fly / Pec Deck", "category": "חזה"},
   {"id": 6, "name": "Bicep Curl", "category": "יד קדמית"},
-  {"id": 7, "name": "Triceps Overhead", "category": "יד אחורית"}
+  {"id": 7, "name": "Triceps Overhead", "category": "יד אחורית"},
+  {"id": 8, "name": "Static Lunges", "category": "רגליים"},
+  {"id": 9, "name": "Goblet Squat", "category": "רגליים"}
 ]
+
 

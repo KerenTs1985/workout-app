@@ -51,7 +51,7 @@ function renderWorkout() {
 
 // --- פונקציות אינטראקציה --- //
 function addToWorkout(id) {
-  workout.push({ exerciseId: id, sets: "3x10", done: false, customName: null });
+  workout.push({ exerciseId: id, sets: "3x12", done: false, customName: null });
   renderWorkout();
 }
 
@@ -110,3 +110,4 @@ document.querySelector(".container").appendChild(refreshBtn);
 
 // --- טעינה ראשונית --- //
 loadExercises();
+

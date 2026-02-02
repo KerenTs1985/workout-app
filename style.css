@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.section {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.add-exercise {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.add-exercise input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.add-exercise button {
+  margin-left: 5px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.add-exercise button:hover {
+  background-color: #45a049;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #eee;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card span {
+  flex-grow: 1;
+}
+
+.card button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.card button:hover {
+  opacity: 0.8;
+}
+
+.card button.add-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.card button.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.card input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+.clear-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #FF9800;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background-color: #fb8c00;
+}

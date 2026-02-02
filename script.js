@@ -1,21 +1,21 @@
-let exercises = []; // נטען מה-JSON
-let workout = [];   // האימון מתחיל ריק
+let exercises = [];
+let workout = [];
 
 const exercisesURL = "https://raw.githubusercontent.com/KerenTs1985/workout-app/main/exercises.json";
 
-// --- פונקציה לטעינת תרגילים מה-JSON --- //
+// --- טעינת תרגילים עדכנית --- //
 function loadExercises() {
-  fetch(exercisesURL + "?t=" + new Date().getTime()) // מניעת cache
+  fetch(exercisesURL + "?t=" + new Date().getTime()) // מונע cache
     .then(res => res.json())
     .then(data => {
       exercises = data;
       renderExercises();
-      renderWorkout(); // אם התרגילים נמחקו מהמאגר, עדכן גם את האימון
+      renderWorkout(); // עדכון האימון אחרי שינוי במאגר
     })
     .catch(err => console.error("שגיאה בטעינת המאגר:", err));
 }
 
-// --- פונקציות רינדור --- //
+// --- רינדור מאגר תרגילים --- //
 function renderExercises() {
   const list = document.getElementById("exercisePool");
   list.innerHTML = "";
@@ -31,13 +31,13 @@ function renderExercises() {
   });
 }
 
+// --- רינדור האימון --- //
 function renderWorkout() {
   const list = document.getElementById("workout");
   list.innerHTML = "";
   workout.forEach((item, index) => {
     const ex = exercises.find(e => e.id === item.exerciseId);
     if (!ex) return;
-
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
@@ -78,4 +78,35 @@ function addExercise() {
   if (!value) return alert("הכנס שם תרגיל!");
   
   const newId = exercises.length ? Math.max(...exercises.map(e => e.id)) + 1 : 1;
-  const category = prompt("בחר קטגוריה לתרגיל: ח
+  const category = prompt("בחר קטגוריה לתרגיל: חזה, גב, כתפיים, בטן, יד קדמית, יד אחורית") || "כללי";
+
+  exercises.push({ id: newId, name: value, category });
+  input.value = "";
+  renderExercises();
+}
+
+function clearWorkout() {
+  workout = [];
+  renderWorkout();
+}
+
+// --- אירועים --- //
+document.getElementById("addExerciseBtn").addEventListener("click", addExercise);
+document.getElementById("clearWorkoutBtn").addEventListener("click", clearWorkout);
+
+// --- כפתור טען עדכונים --- //
+const refreshBtn = document.createElement("button");
+refreshBtn.textContent = "♻️ טען עדכונים";
+refreshBtn.style.width = "100%";
+refreshBtn.style.marginTop = "10px";
+refreshBtn.style.padding = "10px";
+refreshBtn.style.border = "none";
+refreshBtn.style.borderRadius = "8px";
+refreshBtn.style.backgroundColor = "#2196F3";
+refreshBtn.style.color = "white";
+refreshBtn.style.cursor = "pointer";
+refreshBtn.addEventListener("click", loadExercises);
+document.querySelector(".container").appendChild(refreshBtn);
+
+// --- טעינה ראשונית --- //
+loadExercises();
